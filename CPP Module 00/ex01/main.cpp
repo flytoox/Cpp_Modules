@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:09:03 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/18 19:59:30 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:06:20 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ int		main(void)
 	while (1)
 	{
 		std::cout << std::endl<< "\033[1;32m";
-		std::cout << "Commands: ADD, SEARCH, EXIT" << std::endl;
-		std::cout << "\033[0m";
+		std::cout << "Commands: ADD, SEARCH, EXIT\033[0m" << std::endl;
 		std::cout << "Enter a command: " << std::endl << "> ";
 		std::getline(std::cin, input);
-		if (input.empty())
-			continue;
 		if (std::cin.eof())
-			return (0);
-		if (input == "EXIT")
-			return (0);
+		{
+			clearerr(stdin);
+			std::cin.clear();
+		}
+		else if (input == "EXIT")
+			exit (0);
 		else if (input == "ADD")
 			phonebook.add_contact();
 		else if (input == "SEARCH")
