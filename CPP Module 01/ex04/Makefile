@@ -6,13 +6,13 @@
 #    By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/08 16:54:32 by obelaizi          #+#    #+#              #
-#    Updated: 2023/10/20 22:23:18 by obelaizi         ###   ########.fr        #
+#    Updated: 2023/10/21 15:08:30 by obelaizi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Zombie
+NAME = Replace
 FLAGS = -std=c++98 -Wall -Wextra -Werror
-HEADER = Zombie.hpp
+HEADER = 
 
 SRCS = $(wildcard *.cpp)
 OBJS= $(SRCS:.cpp=.o)
