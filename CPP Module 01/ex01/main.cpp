@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:28:39 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/20 22:43:45 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/10/22 12:02:43 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int main ()
 	Zombie *zm = zombieHorde(10, "3alal l9adoss");
 
 	for(int i=0; i < 10; i++)
-	{
 		zm[i].annonce();
-	}
 	delete[](zm);
 }

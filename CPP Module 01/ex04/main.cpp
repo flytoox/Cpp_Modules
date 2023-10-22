@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:46:49 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/21 15:08:04 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/10/22 13:07:10 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	}
 	string filename = argv[1], s1 = argv[2], s2 = argv[3];
 	std::ifstream file(filename);
-	if (!file)
+	if (!file.is_open())
 	{
 		cout << "Error opening file" << endl;
 		return (1);
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 		content.insert(indx, s2);
 	}
 	std::ofstream	out(filename + ".replace");
-	if (!out)
+	if (!out.is_open())
 	{
 		cout<<"Mamamia There is an error" << endl;
 		return (1);	
