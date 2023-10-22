@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:29:32 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/22 13:04:06 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/10/22 14:17:00 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,22 @@
 
 void	HumanA::attack(void) const
 {
-	std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
+	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 }
 
 void	HumanA::setWeapon(Weapon &weapon)
 {
-	_weapon = &weapon;
+	_weapon = weapon;
 }
 
 HumanA::~HumanA()
 {
 }
 
-HumanA::HumanA()
+HumanA::HumanA(Weapon &weapon): _weapon(weapon)
 {
-
 }
 
-HumanA::HumanA(std::string name, Weapon &weapon)
+HumanA::HumanA(std::string name, Weapon &weapon): _weapon(weapon), _name(name)
 {
-	_name = name;
-	_weapon = &weapon;
 }

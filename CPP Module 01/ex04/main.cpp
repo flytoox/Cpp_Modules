@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:46:49 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/22 13:07:10 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/10/22 14:21:02 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	main(int argc, char **argv)
 		cout<<"Mamamia There is an error" << endl;
 		return (1);	
 	}
+	content.pop_back();
 	out << content;
 	out.close();
 	
