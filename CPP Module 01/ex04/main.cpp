@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:46:49 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/22 14:21:02 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:34:04 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ int	main(int argc, char **argv)
 		content += "\n";
 	}
 	file.close();
-	int indx = -1;
-	while ((indx = content.find(s1)) != -1)
+	std::ofstream	out(filename + ".replace");
+	int indx = 0;
+	while ((indx = content.find(s1, indx)) != -1)
 	{
 		content.erase(indx, s1.length());
 		content.insert(indx, s2);
+		indx += s2.length();
 	}
-	std::ofstream	out(filename + ".replace");
 	if (!out.is_open())
 	{
 		cout<<"Mamamia There is an error" << endl;
