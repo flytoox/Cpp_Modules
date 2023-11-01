@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 16:24:48 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/30 19:02:08 by obelaizi         ###   ########.fr       */
+/*   Created: 2023/10/30 19:08:35 by obelaizi          #+#    #+#             */
+/*   Updated: 2023/11/01 21:33:30 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+Point::Point():_x(0),_y(0) {}
+
+Point::~Point() {};
+
+Point::Point(const float x, const float y):_x(Fixed(x)), _y(Fixed(y)) {}
+
+Point::Point(Point const &p) {
+	*this = p;
+}
+
+void	Point::operator=(const Point &p) {
+	(void) p;
+}
+
+float	Point::getX() const{
+	return _x.toFloat();
+}
+
+float	Point::getY() const{
+	return _y.toFloat();
 }

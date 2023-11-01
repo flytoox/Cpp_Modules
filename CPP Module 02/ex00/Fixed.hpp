@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 16:24:48 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/30 19:02:08 by obelaizi         ###   ########.fr       */
+/*   Created: 2023/10/27 16:06:33 by obelaizi          #+#    #+#             */
+/*   Updated: 2023/10/30 19:05:38 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
-}
+#include<iostream>
+#include <cmath>
+
+class Fixed {
+	private:
+		int						_n;
+		static const int fractBits;
+	public:
+		Fixed();
+		~Fixed();
+		Fixed(Fixed &fx);
+		void	operator=(const Fixed &fx);
+		int		getRawBits(void) const;
+		void	setRawBits(int const _n);
+};
+
+#endif

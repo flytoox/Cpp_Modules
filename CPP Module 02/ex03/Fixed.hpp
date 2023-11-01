@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:06:33 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/30 19:00:51 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/10/30 19:05:34 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FIXED_HPP
 
 #include<iostream>
+#include <cmath>
 
 class Fixed {
 	private:

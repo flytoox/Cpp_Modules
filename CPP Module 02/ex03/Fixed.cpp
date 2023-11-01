@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:06:28 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/30 19:03:02 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/11/01 21:33:54 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ const int	Fixed::fractBits = 8;
 
 Fixed::Fixed() {
 	_n = 0;
-	std::cout << "Default contructor called\n";
+	// std::cout << "Default contructor called\n";
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called\n";
+	// std::cout << "Destructor called\n";
 }
 
 Fixed::Fixed(Fixed const &fx) {
-	std::cout << "Copy contructor called\n";
+	// std::cout << "Copy contructor called\n";
 	*this = fx;
 }
 
 void	Fixed::operator=(const Fixed &fx) {
-	std::cout << "Copy assignment operator called\n";
+	// std::cout << "Copy assignment operator called\n";
 	_n = fx._n;
 }
 
@@ -47,12 +47,12 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fx) {
 }
 
 Fixed::Fixed(const int n) {
-	std::cout << "Int constructor called\n";
+	// std::cout << "Int constructor called\n";
 	_n = n * 256;
 }
 
 Fixed::Fixed(const float n) {
-	std::cout << "Float constructor called\n";
+	// std::cout << "Float constructor called\n";
 	_n = roundf(n * 256);
 }
 

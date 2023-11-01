@@ -6,12 +6,12 @@
 #    By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 16:04:41 by obelaizi          #+#    #+#              #
-#    Updated: 2023/11/01 22:00:47 by obelaizi         ###   ########.fr        #
+#    Updated: 2023/11/01 22:00:42 by obelaizi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Fixed
-FLAGS = -std=c++98  -Wall -Wextra -Werror
+NAME = Point
+FLAGS = -std=c++98 -Wall -Wextra -Werror
 HEADER = Fixed.hpp
 
 SRCS = $(wildcard *.cpp)
@@ -23,7 +23,7 @@ all: $(NAME)
 	c++ -c $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	c++ $(OBJS)  $(FLAGS) -o $(NAME)
+	c++ $(OBJS) $(FLAGS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)

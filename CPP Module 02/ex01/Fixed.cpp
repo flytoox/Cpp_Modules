@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:06:28 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/10/30 19:03:02 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/10/30 18:53:12 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,97 +62,4 @@ int	Fixed::toInt(void) const {
 
 float Fixed::toFloat(void) const {
 	return ((float)_n / 256);
-}
-
-
-
-
-
-bool	Fixed::operator>(const Fixed &fx) const{
-	return (_n > fx._n);
-}
-
-bool	Fixed::operator<(const Fixed &fx) const{
-	return (_n < fx._n );
-}
-
-bool	Fixed::operator>=(const Fixed &fx) const{
-	return !(*this < fx);
-}
-
-bool	Fixed::operator<=(const Fixed &fx) const{
-	return !(*this > fx);
-}
-
-bool	Fixed::operator==(const Fixed &fx) const{
-	return (_n == fx._n);
-}
-
-bool	Fixed::operator!=(const Fixed &fx) const{
-	return !(*this == fx);
-}
-
-Fixed	Fixed::operator-(const Fixed &fx) const{
-	return (Fixed((float)(this->toFloat() - fx.toFloat())));
-}
-
-Fixed	Fixed::operator+(const Fixed &fx) const{
-	return (Fixed((float)(this->toFloat() + fx.toFloat())));
-}
-
-Fixed	Fixed::operator*(const Fixed &fx) const{
-	return (Fixed((float)(this->toFloat() * fx.toFloat())));
-}
-
-Fixed	Fixed::operator/(const Fixed &fx) const{
-	return (Fixed((float)(this->toFloat() / fx.toFloat())));
-}
-
-
-Fixed	Fixed::operator++(int) {
-	Fixed tmp (*this);
-	_n++;
-	return tmp;
-}
-
-Fixed	&Fixed::operator++() {
-	_n++;
-	return *this;
-}
-
-Fixed	Fixed::operator--(int) {
-	Fixed tmp (*this);
-	_n--;
-	return tmp;
-}
-
-Fixed	&Fixed::operator--() {	
-	_n--;
-	return *this;
-}
-
-
-
-Fixed	&Fixed::max(Fixed &fx1, Fixed &fx2) {
-	if (fx1 < fx2)
-		return (fx2);
-	return (fx1);
-}
-
-const Fixed	&Fixed::max(const Fixed &fx1, const Fixed &fx2) {
-	if (fx1 < fx2)
-		return (fx2);
-	return (fx1);
-}
-
-Fixed	&Fixed::min(Fixed &fx1, Fixed &fx2) {
-	if (fx1 > fx2)
-		return (fx2);
-	return (fx1);
-}
-
-const Fixed	&Fixed::min(const Fixed &fx1, const Fixed &fx2) {
-	if (fx1 > fx2)
-		return (fx2);
-	return (fx1);
 }
