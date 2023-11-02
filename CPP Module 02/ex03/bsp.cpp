@@ -6,11 +6,17 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:16:57 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/11/01 21:37:44 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/11/02 12:08:01 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+
+
+float area(float x1, float y1, float x2, float y2, float x3, float y3) {
+	float ret = (x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0;
+   return (ret < 0) ? ret * -1: ret;
+}
 
 bool bsp( Point const A, Point const B, Point const C, Point const P) {
 
@@ -21,13 +27,10 @@ bool bsp( Point const A, Point const B, Point const C, Point const P) {
 	Xa = A.getX(), Xb = B.getX(), Xc = C.getX(), Xp = P.getX();
 	Ya = A.getY(), Yb = B.getY(), Yc = C.getY(), Yp = P.getY();
 	
-	float	ABP, BCP, CAP, ABC;
+	float ABC = area(Xa, Ya, Xb, Yb, Xc, Yc);
+	float BCP = area(Xb, Yb, Xc, Yc, Xp, Yp);
+	float CAP = area(Xc, Yc, Xa, Ya, Xp, Yp);
+	float ABP = area(Xa, Ya, Xb, Yb, Xp, Yp);
 	
-	ABP = (Xb - Xa) * (Yp - Ya) - (Yb - Ya) * (Xp - Xa);
-	BCP = (Xc - Xb) * (Yp - Yb) - (Yc - Yb) * (Xp - Xb);
-	CAP = (Xa - Xc) * (Yp - Yc) - (Ya - Yc) * (Xp - Xc);
-	ABC = (Xb - Xa) * (Yc - Ya) - (Yb - Ya) * (Xc - Xa);
-	
-	return (ABP < 0 && BCP < 0 && CAP < 0) || (ABP > 0 && BCP > 0 && CAP > 0) ;
-	
+	return (ABC == BCP + CAP + ABP && ABC != 0 && BCP != 0 && CAP != 0 && ABP != 0) ;
 }
