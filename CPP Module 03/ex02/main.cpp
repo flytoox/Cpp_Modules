@@ -6,21 +6,19 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 19:03:13 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/11/07 19:45:42 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/11/07 19:48:07 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main () {
-	//create for me a main to test your classes
-	ClapTrap ct("Flytoox");
-	
+	FragTrap ct("Flytoox");
+
 	ct.attack("DA3NAN");
+	
 	ct.takeDamage(5);
-	ct.beRepaired(5);
-	ct.takeDamage(10);
-	ct.beRepaired(10);
-	ct.takeDamage(100);
-	ct.beRepaired(100);
+	ct.beRepaired(50);
+	ct.takeDamage(30);
+	ct.highFivesGuy();
 }

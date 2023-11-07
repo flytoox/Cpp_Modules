@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 19:03:13 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/11/07 19:45:42 by obelaizi         ###   ########.fr       */
+/*   Created: 2023/11/04 19:07:29 by obelaizi          #+#    #+#             */
+/*   Updated: 2023/11/07 19:29:08 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAV_TRAP_HPP
+#define SCAV_TRAP_HPP
+
+#include <iostream>
 #include "ClapTrap.hpp"
 
-int main () {
-	//create for me a main to test your classes
-	ClapTrap ct("Flytoox");
-	
-	ct.attack("DA3NAN");
-	ct.takeDamage(5);
-	ct.beRepaired(5);
-	ct.takeDamage(10);
-	ct.beRepaired(10);
-	ct.takeDamage(100);
-	ct.beRepaired(100);
-}
+class ScavTrap : public virtual ClapTrap {
+	public:
+		ScavTrap();
+		ScavTrap(std::string name);
+		~ScavTrap();
+		ScavTrap(const ScavTrap &ct);
+		ScavTrap	&operator=(const ScavTrap &ct);
+		void		attack(const std::string& target);
+		void		guardGate();
+};
+
+#endif

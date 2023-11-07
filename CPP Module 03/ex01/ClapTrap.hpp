@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:51:40 by obelaizi          #+#    #+#             */
-/*   Updated: 2023/11/07 19:36:22 by obelaizi         ###   ########.fr       */
+/*   Updated: 2023/11/07 19:39:14 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string _name;
 		unsigned int	_health;
 		unsigned int	_energy;
