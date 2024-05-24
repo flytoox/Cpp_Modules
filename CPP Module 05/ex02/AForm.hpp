@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:08:23 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/05/18 17:32:37 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/05/18 17:32:58 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
-class Form
+class AForm
 {
     private:
         std::string const   _name;
@@ -26,11 +26,6 @@ class Form
         int const           _gradeToSign;
         int const           _gradeToExecute;
     public:
-        Form();
-        Form(std::string name, int gradeToSign, int gradeToExecute);
-        Form(Form const &src);
-        ~Form();
-        Form &operator=(Form const &rhs);
         std::string const   &getName() const;
         bool                getSigned() const;
         void                beSigned(Bureaucrat &b);
