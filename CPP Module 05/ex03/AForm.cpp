@@ -12,15 +12,15 @@
 
 #include "AForm.hpp"
 
-AForm::AForm(): _gradeToSign(150), _gradeToExecute(150){
+AForm::AForm(): _gradeToSign(150), _gradeToExecute(150) {
     this->_signed = false;
 }
 
-AForm::AForm(std::string name, int sign_grade, int exec_grade) : _name(name),  _gradeToSign(sign_grade), _gradeToExecute(exec_grade){
+AForm::AForm(std::string name, int sign_grade, int exec_grade) : _name(name),  _gradeToSign(sign_grade), _gradeToExecute(exec_grade) {
     this->_signed = false;
 }
 
-AForm::AForm(AForm const &src): _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute){
+AForm::AForm(AForm const &src): _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {
     *this = src;
 }
 
@@ -29,9 +29,7 @@ AForm::~AForm() {
 
 AForm &AForm::operator=(AForm const &obj) {
     if (this != &obj)
-    {
         this->_signed = obj._signed;
-    }
     return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:08:23 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/05/18 17:32:37 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/04 23:11:35 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Form
         Form(std::string name, int gradeToSign, int gradeToExecute);
         Form(Form const &src);
         ~Form();
-        Form &operator=(Form const &rhs);
+        Form &operator=(Form const &obj);
         std::string const   &getName() const;
         bool                getSigned() const;
         void                beSigned(Bureaucrat &b);
@@ -43,3 +43,5 @@ class Form
             virtual const char *what() const throw();
         };
 };
+
+std::ostream &operator<<(std::ostream &os, Form const &f);
