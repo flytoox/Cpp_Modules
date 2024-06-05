@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:03:13 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/05 17:04:34 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:17:51 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void                Bureaucrat::signForm(AForm &f) {
         std::cout << this->_name << " signed " << f.getName() << std::endl;
     }
     catch(const std::exception &e) {
-        std::cerr << this->_name << " couldn’t sign " << f.getName() << " because " << e.what() << std::endl;
+        std::cerr << this->_name << " couldn't sign " << f.getName() << " because " << e.what() << std::endl;
     }
 }
 
