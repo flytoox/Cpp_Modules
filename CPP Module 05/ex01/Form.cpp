@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:09:24 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/04 23:11:35 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:52:36 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,14 @@ bool                Form::getSigned() const {
     return this->_signed;
 }
 
+int                 Form::getGradeToSign() const {
+    return this->_gradeToSign;
+}
+
+int                 Form::getGradeToExecute() const {
+    return this->_gradeToExecute;
+}
+
 void                Form::beSigned(Bureaucrat &b) {
     if (b.getGrade() > this->_gradeToSign)
         throw Form::GradeTooLowException();
@@ -58,11 +66,6 @@ const char *Form::GradeTooLowException::what() const throw() {
 }
 
 std::ostream &operator<<(std::ostream &os, Form const &f) {
-    os << "Form " << f.getName() << " is ";
-    if (f.getSigned())
-        os << "signed";
-    else
-        os << "not signed";
-    os << std::endl;
+    os << "Form " << f.getName() << " is " << (f.getSigned() ? "" : "not ") << "signed\n";
     return os;
 }

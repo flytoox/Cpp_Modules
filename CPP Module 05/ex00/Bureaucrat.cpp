@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:03:13 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/04 23:11:35 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:12:52 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,4 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &obj) {
     out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << '.';
     return out;
 }
+

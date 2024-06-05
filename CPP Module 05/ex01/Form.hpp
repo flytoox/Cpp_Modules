@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:08:23 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/04 23:11:35 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:51:35 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ class Form
         Form &operator=(Form const &obj);
         std::string const   &getName() const;
         bool                getSigned() const;
+        int                 getGradeToSign() const;
+        int                 getGradeToExecute() const;
         void                beSigned(Bureaucrat &b);
         class GradeTooHighException : public std::exception
         {

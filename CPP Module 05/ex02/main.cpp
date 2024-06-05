@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:05:29 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/04 22:46:03 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:08:07 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,5 @@ int main() {
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
-    
-    
-    
     return 0;
 }

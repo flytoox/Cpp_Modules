@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 11:08:23 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/04 23:11:35 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:09:48 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AForm
         AForm();
         AForm(std::string name, int gradeToSign, int gradeToExecute);
         AForm(AForm const &src);
-        ~AForm();
+        virtual ~AForm();
         AForm &operator=(AForm const &obj);
         std::string const   &getName() const;
         int                 getGradeToSign() const;
