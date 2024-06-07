@@ -6,11 +6,12 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 10:42:26 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/07 10:42:27 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/07 14:22:54 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
 #include "Array.hpp"
 
 #define MAX_VAL 750
