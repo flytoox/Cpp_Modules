@@ -6,24 +6,41 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 04:39:52 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/07 04:43:27 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:35:15 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include <iostream>
 
-template <typename T>
-void print(T const &x) {
-    std::cout << x << " ";
+class Awesome
+{
+  public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+  private:
+    int _n;
+};
+
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
+{
+  o << rhs.get();
+  return o;
+}
+
+template< typename T >
+void print( T& x )
+{
+  std::cout << x << std::endl;
+  return;
 }
 
 int main() {
-    int tab[] = {0, 1, 2, 3, 4};
-    iter(tab, 5, print);
-    std::cout << std::endl;
-    std::string s[] = {"one", "two", "three", "four", "five"};
-    iter(s, 5, print);
+  int tab[] = { 0, 1, 2, 3, 4 };
+  Awesome tab2[5];
 
-    return 0;
+  iter( tab, 5, print<const int> );
+  iter( tab2, 5, print<Awesome> );
+
+  return 0;
 }

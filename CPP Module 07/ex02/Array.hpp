@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 04:44:13 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/07 05:02:32 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:14:29 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Array
         unsigned int _size;
 
     public:
-        Array() : _array(nullptr), _size(0) {}
-        Array(unsigned int n) : _array(new T(n)), _size(n) {}
-        Array(Array const &src) : _array(new T(src._size)), _size(src._size) {
+        Array() : _array(NULL), _size(0) {}
+        Array(unsigned int n) : _array(new T[n]), _size(n) {}
+        Array(Array const &src) : _array(new T[src._size]), _size(src._size) {
             for (unsigned int i = 0; i < _size; i++)
                 _array[i] = src._array[i];
         }
