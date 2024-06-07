@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 02:36:13 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/07 02:43:38 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/07 02:58:35 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void identify(Base &p) {
         A &a = dynamic_cast<A &>(p);
         (void)a;
         std::cout << "A" << std::endl;
-    } catch (std::bad_cast &bc) {
+    } catch (std::exception &e) {
         try {
             B &b = dynamic_cast<B &>(p);
             (void)b;

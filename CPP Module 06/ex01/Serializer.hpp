@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 02:14:43 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/07 02:46:50 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/07 02:54:48 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstdint> 
 
 
 struct Data
