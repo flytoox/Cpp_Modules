@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = Serialization
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 HEADER = $(wildcard *.hpp)
 

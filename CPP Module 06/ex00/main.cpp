@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 21:52:13 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/05 22:02:43 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/07 02:14:33 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int ac, char **av) {
     if (ac != 2) {
-        std::cout << "Usage: ./scalar_converter [input]" << std::endl;
+        std::cout << "Usage: ./convert [input]" << std::endl;
         return 1;
     }
     ScalarConverter::convert(av[1]);

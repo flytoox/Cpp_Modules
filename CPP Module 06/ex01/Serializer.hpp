@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 21:50:28 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/07 02:47:32 by obelaizi         ###   ########.fr       */
+/*   Created: 2024/06/07 02:14:43 by obelaizi          #+#    #+#             */
+/*   Updated: 2024/06/07 02:46:50 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <string>
 
-class ScalarConverter
+
+struct Data
+{
+    std::string key;
+    std::string value;
+    int        index;
+};
+class Serializer
 {
     private:
-        ScalarConverter();
-        ~ScalarConverter();
-        ScalarConverter(ScalarConverter const &src);
-        ScalarConverter &operator=(ScalarConverter const &rhs);
+        Serializer();
+        ~Serializer();
+        Serializer(Serializer const &src);
+        Serializer &operator=(Serializer const &rhs);
     public:
-        static void convert(std::string const &input);
+        static uintptr_t serialize(Data* ptr);
+        static Data* deserialize(uintptr_t raw);
 };
-
-std::ostream &operator<<(std::ostream &o, ScalarConverter const &rhs);

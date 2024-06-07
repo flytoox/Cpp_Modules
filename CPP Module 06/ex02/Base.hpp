@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 21:50:28 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/07 02:47:32 by obelaizi         ###   ########.fr       */
+/*   Created: 2024/06/07 02:34:05 by obelaizi          #+#    #+#             */
+/*   Updated: 2024/06/07 02:46:13 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 #include <iostream>
 
-class ScalarConverter
-{
-    private:
-        ScalarConverter();
-        ~ScalarConverter();
-        ScalarConverter(ScalarConverter const &src);
-        ScalarConverter &operator=(ScalarConverter const &rhs);
+class Base {
     public:
-        static void convert(std::string const &input);
+        virtual ~Base();
+        
 };
 
-std::ostream &operator<<(std::ostream &o, ScalarConverter const &rhs);
+Base *generate(void);
+void identify(Base *p);
+void identify(Base &p);

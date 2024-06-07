@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 21:10:16 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/06 00:51:22 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/07 02:48:52 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,61 +23,55 @@ ScalarConverter::ScalarConverter(ScalarConverter const &src) {
 }
 
 ScalarConverter &ScalarConverter::operator=(ScalarConverter const &rhs) {
-    if (this != &rhs) {
-    }
+    (void)rhs;
     return *this;
 }
 
 void ScalarConverter::convert(std::string const &input) {
-    try {
-        int i = std::stoi(input);
-        if (i < 32 || i > 126)
-            throw NonDisplayableException();
-        if (i < 0 || i > 255)
-            throw ImpossibleException();
-        std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
-    } catch (std::exception &e) {
-        if (e.what()[0] == 'c')
-            std::cout << e.what() << std::endl;
-        else 
-            std::cout << "char: impossible" << std::endl;
+    if (input.size() == 1 && !isdigit(input[0])) {
+        std::cout << "char: '" << input << "'" << std::endl;
+        std::cout << "int: " << static_cast<int>(input[0]) << std::endl;
+        std::cout << "float: " << static_cast<float>(input[0]) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(input[0]) << ".0" << std::endl;
+        return ;
     }
-    try {
-        int i = std::stoi(input);
-        std::cout << "int: " << i << std::endl;
-    } catch (std::exception &e) {
+    double d = strtod(input.c_str(), NULL);
+    if (!d && input != "0") {
+        std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-    }
-    try {
-        float f = std::stof(input);
-        std::cout << "float: " << f;
-        if (f - static_cast<int>(f) == 0)
-            std::cout << ".0";
-        std::cout << "f" << std::endl;
-    } catch (std::exception &e) {
         std::cout << "float: impossible" << std::endl;
-    }
-    try {
-        double d = std::stod(input);
-        std::cout << "double: " << d;
-        if (d - static_cast<int>(d) == 0)
-            std::cout << ".0";
-        std::cout << std::endl;
-    } catch (std::exception &e) {
         std::cout << "double: impossible" << std::endl;
+        return ;
     }
-}
-
-const char *ScalarConverter::ImpossibleException::what() const throw() {
-    return "char: impossible";
-}
-
-const char *ScalarConverter::NonDisplayableException::what() const throw() {
-    return "char: Non displayable";
+    //Char
+    int i = static_cast<int>(d);
+    std::cout << "char: ";
+    if (d != d || d > 127 || d < 0)
+        std::cout << "impossible" << std::endl;
+    else if (i < 32 || i > 126)
+        std::cout << "Non displayable" << std::endl;
+    else
+        std::cout << "'" <<  static_cast<char>(i) << "'" << std::endl;
+    //Int
+    std::cout << "int: ";
+    if (d > INT_MAX || d < INT_MIN || d != d)
+        std::cout << "impossible" << std::endl;
+    else
+        std::cout << i << std::endl;
+    //Float
+    float f = static_cast<float>(d);
+    std::cout << "float: " << f;
+    if (f - static_cast<int>(f) == 0)
+        std::cout << ".0";
+    std::cout << "f" << std::endl;
+    //Double
+    std::cout << "double: " << d;
+    if (d - static_cast<int>(d) == 0)
+        std::cout << ".0";
+    std::cout << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, ScalarConverter const &rhs) {
     (void)rhs;
     return o;
 }
-

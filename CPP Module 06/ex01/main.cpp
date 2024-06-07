@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 21:50:28 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/07 02:47:32 by obelaizi         ###   ########.fr       */
+/*   Created: 2024/06/06 20:33:51 by obelaizi          #+#    #+#             */
+/*   Updated: 2024/06/07 02:32:19 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Serializer.hpp"
 
-#include <iostream>
+int main() {
+    Data data;
+    data.key = "tlaja";
+    data.value = "homemax";
+    data.index = 42;
 
-class ScalarConverter
-{
-    private:
-        ScalarConverter();
-        ~ScalarConverter();
-        ScalarConverter(ScalarConverter const &src);
-        ScalarConverter &operator=(ScalarConverter const &rhs);
-    public:
-        static void convert(std::string const &input);
-};
+    uintptr_t raw = Serializer::serialize(&data);
+    Data *ptr = Serializer::deserialize(raw);
 
-std::ostream &operator<<(std::ostream &o, ScalarConverter const &rhs);
+    std::cout << "key: " << ptr->key << std::endl;
+    std::cout << "value: " << ptr->value << std::endl;
+    std::cout << "index: " << ptr->index << std::endl;
+
+    return 0;
+}
