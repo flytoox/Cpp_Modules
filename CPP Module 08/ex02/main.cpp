@@ -6,12 +6,13 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:53:09 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/08 21:33:51 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/08 21:38:30 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <list>
+#include <cstdlib>
 
 int main() {
     srand(time(NULL));
