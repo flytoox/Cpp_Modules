@@ -6,12 +6,11 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:29 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/10 19:35:34 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/10 19:58:13 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#define timeStrct std::chrono::time_point<std::chrono::high_resolution_clock>
 
 void fordJhonson(std::vector<int> &v) {
     if (v.size() <= 1)
@@ -52,12 +51,14 @@ void fordJhonsonLst(std::list<int> &v) {
     int i1 = 0, i2 = 0;
     int lastElem = -1;
     for (std::list<int>::iterator i = v.begin(); i != v.end(); ) {
-        if (std::next(i) == v.end())
+        std::list<int>::iterator tmp = i;
+        tmp++;
+        if (tmp == v.end())
             lastElem = *i;
-        else if (*i > *std::next(i))
-            v1[i1++] = *std::next(i), v2[i2++] = *i;
+        else if (*i > *tmp)
+            v1[i1++] = *tmp, v2[i2++] = *i;
         else
-            v1[i1++] = *i, v2[i2++] = *std::next(i);
+            v1[i1++] = *i, v2[i2++] = *tmp;
         ++i;
         if (i != v.end())
             ++i;
@@ -98,18 +99,18 @@ int main(int argc, char **argv) {
         std::cout << v[i] << " ";
     std::cout << std::endl;
     std::list<int> lst(v.begin(), v.end());
-    timeStrct start = std::chrono::high_resolution_clock::now();
+    clock_t start = clock();
     fordJhonson(v);
-    timeStrct end = std::chrono::high_resolution_clock::now();
+    clock_t end = clock();
     std::cout << "After: ";
     for (size_t i = 0; i < v.size(); i++)
         std::cout << v[i] << " ";
     std::cout << std::endl;
     
-    std::cout << "Time to process a range of " << v.size() << " elements with std::vector : " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
-    start = std::chrono::high_resolution_clock::now();
+    std::cout << "Time to process a range of " << v.size() << " elements with std::vector : " << (double)(end - start) / CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
+    start = clock();
     fordJhonsonLst(lst);
-    end = std::chrono::high_resolution_clock::now();
-    std::cout << "Time to process a range of " << lst.size() << " elements with std::list : " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
+    end = clock();
+    std::cout << "Time to process a range of " << lst.size() << " elements with std::list : " << (double)(end - start) / CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
     return 0;
 }
