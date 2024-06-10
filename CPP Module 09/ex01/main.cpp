@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 16:54:25 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/09 18:13:31 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/10 19:26:23 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int toNum(std::string &s) {
 
 int main(int ac, char **av) {
     if (ac != 2) {
-        std::cout << "Usage: ./RPN \"expression\"" << std::endl;
+        std::cerr << "Usage: ./RPN \"expression\"" << std::endl;
         return 1;
     }
     std::stringstream ss(av[1]);

@@ -6,13 +6,16 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:29 by obelaizi          #+#    #+#             */
-/*   Updated: 2024/06/10 01:03:20 by obelaizi         ###   ########.fr       */
+/*   Updated: 2024/06/10 19:35:34 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#define timeStrct std::chrono::time_point<std::chrono::high_resolution_clock>
 
 void fordJhonson(std::vector<int> &v) {
+    if (v.size() <= 1)
+        return;
     if (v.size() == 2) {
         if (v[0] > v[1])
             std::swap(v[0], v[1]);
@@ -38,6 +41,8 @@ void fordJhonson(std::vector<int> &v) {
 }
 
 void fordJhonsonLst(std::list<int> &v) {
+    if (v.size() <= 1)
+        return;
     if (v.size() == 2) {
         if (v.front() > v.back())
             v.reverse();
@@ -67,7 +72,6 @@ void fordJhonsonLst(std::list<int> &v) {
         v.insert(std::lower_bound(v.begin(), v.end(), lastElem), lastElem);
 }
 
-
 int main(int argc, char **argv) {
     if (argc == 1) {
         std::cerr << "Usage: ./PmergeMe [arg1] [arg2] ... [argN]" << std::endl;
@@ -88,31 +92,24 @@ int main(int argc, char **argv) {
         }
         v.push_back(tmp);
     }
+    
     std::cout << "Before: ";
     for (size_t i = 0; i < v.size(); i++)
         std::cout << v[i] << " ";
     std::cout << std::endl;
     std::list<int> lst(v.begin(), v.end());
-    std::cout << "Before: ";
-    for (std::list<int>::iterator i = lst.begin(); i != lst.end(); ++i)
-        std::cout << *i << " ";
-    std::cout << std::endl;
-    std::chrono::time_point<std::chrono::high_resolution_clock> start = std::chrono::high_resolution_clock::now();
+    timeStrct start = std::chrono::high_resolution_clock::now();
     fordJhonson(v);
-    std::chrono::time_point<std::chrono::high_resolution_clock> end = std::chrono::high_resolution_clock::now();
+    timeStrct end = std::chrono::high_resolution_clock::now();
     std::cout << "After: ";
     for (size_t i = 0; i < v.size(); i++)
         std::cout << v[i] << " ";
     std::cout << std::endl;
-    std::cout << "Time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
+    
+    std::cout << "Time to process a range of " << v.size() << " elements with std::vector : " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
     start = std::chrono::high_resolution_clock::now();
     fordJhonsonLst(lst);
     end = std::chrono::high_resolution_clock::now();
-    std::cout << "Time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
-    std::cout << "After: ";
-    for (std::list<int>::iterator i = lst.begin(); i != lst.end(); ++i)
-        std::cout << *i << " ";
-    std::cout << std::endl;
-    
+    std::cout << "Time to process a range of " << lst.size() << " elements with std::list : " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
     return 0;
 }
